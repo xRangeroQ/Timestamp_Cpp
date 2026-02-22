@@ -1,4 +1,4 @@
-# 🕛 Timestamp Cpp
+# 🕛 Timestamp
 
 This repository provides a lightweight and flexible C++ utility for generating system timestamps. It supports both raw Unix timestamps and custom-formatted date/time strings using standard C++ libraries.
 
