@@ -15,15 +15,15 @@ std::string Timestamp(std::string Time_Format = "") {
         return std::to_string(now);
 	
 	// Create Time Structure
-    tm tm;
+    tm tm = {};
 
     // Safe Turn LocalTime
-    if (localtime_s(&tm, &now) != 0)
-		return "";
+    tm *time_info;
+    time_info = localtime(&now);
 
     // Create Buffer and Fill
     char Buffer[256];
-    strftime(Buffer, sizeof(Buffer), Time_Format.c_str(), &tm);
+    strftime(Buffer, sizeof(Buffer), Time_Format.c_str(), &time_info);
 
     // Return Timestamp
     return std::string(Buffer);
