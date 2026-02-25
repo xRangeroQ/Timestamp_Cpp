@@ -18,12 +18,12 @@ std::string Timestamp(std::string Time_Format = "") {
     tm tm = {};
 
     // Safe Turn LocalTime
-    tm *time_info;
+    struct tm *time_info = nullptr;
     time_info = localtime(&now);
 
     // Create Buffer and Fill
     char Buffer[256];
-    strftime(Buffer, sizeof(Buffer), Time_Format.c_str(), &time_info);
+    strftime(Buffer, sizeof(Buffer), Time_Format.c_str(), time_info);
 
     // Return Timestamp
     return std::string(Buffer);
