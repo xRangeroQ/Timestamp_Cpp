@@ -11,18 +11,14 @@ std::string Timestamp(std::string Time_Format = "") {
     time_t now = time(nullptr);
 
     // Control Time Format
-    if (Time_Format.empty())
-        return std::to_string(now);
-	
-	// Create Time Structure
-    tm tm = {};
+    if (Time_Format.empty()) return std::to_string(now);
 
     // Safe Turn LocalTime
     struct tm *time_info = nullptr;
     time_info = localtime(&now);
 
     // Create Buffer and Fill
-    char Buffer[256];
+    char Buffer[Time_Format.size()];
     strftime(Buffer, sizeof(Buffer), Time_Format.c_str(), time_info);
 
     // Return Timestamp
