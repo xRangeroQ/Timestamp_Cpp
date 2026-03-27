@@ -18,7 +18,7 @@ std::string Timestamp(std::string Time_Format = "") {
     time_info = localtime(&now);
 
     // Create Buffer and Fill
-    char Buffer[Time_Format.size()];
+    char Buffer[Time_Format.size() * 4 + 20];
     strftime(Buffer, sizeof(Buffer), Time_Format.c_str(), time_info);
 
     // Return Timestamp
